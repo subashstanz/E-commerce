@@ -6,6 +6,9 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import {Copyright} from "components/copyright";
+import {collections} from "./data/collection";
+import ReactJson from "react-json-view";
+import {product} from "./data/product";
 
 function App() {
   const [appIsReady, setAppIsReady] = useState(false)
@@ -23,9 +26,12 @@ function App() {
           Kalira React App boilerplate in TypeScript
         </Typography>
         <Typography variant="body1" component="p" gutterBottom>
-          JSON path:
           * src/data/product.json
+          <ReactJson src={product} name={"product"} collapsed={true} theme={"monokai"} enableClipboard={true} sortKeys={true}/>
+        </Typography>
+        <Typography variant="body1" component="p" gutterBottom>
           * src/data/collection.json
+          <ReactJson src={collections} name={"collections"} collapsed={true} theme={"monokai"} enableClipboard={true} sortKeys={true}/>
         </Typography>
         <Copyright />
       </Box>
