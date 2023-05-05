@@ -10,11 +10,11 @@ import { collections } from "./data/collection"
 import ReactJson from "react-json-view"
 import { product } from "./data/product"
 import ProductListing from "components/ProductListing"
+import ProductView from "components/productView"
 
 function App() {
   const [appIsReady, setAppIsReady] = useState(false)
-  console.log({ product })
-  console.log({ collections })
+  const [onShowProduct, setOnSHowProduct] = useState<boolean>(false)
 
   useEffect(() => {
     setAppIsReady(true)
@@ -42,7 +42,9 @@ function App() {
   // </ThemeProvider>
   return (
     <>
-      <ProductListing />
+      {onShowProduct ? <ProductView setOnSHowProduct={setOnSHowProduct} /> : <ProductListing setOnSHowProduct={setOnSHowProduct} />}
+      {/* <ProductListing setOnSHowProduct={setOnSHowProduct} />
+      <ProductView /> */}
     </>
   )
 }
